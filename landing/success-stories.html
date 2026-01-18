@@ -100,11 +100,58 @@
             letter-spacing: 1px;
         }
         
-        .extended-stories-grid {
+        .extended-stories-grid,
+        .success-page-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
             margin-bottom: 80px;
+        }
+        
+        .success-page-grid .video-testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .success-page-grid .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            background: #000;
+        }
+        
+        .success-page-grid .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .success-page-grid .video-quote {
+            padding: 25px;
+        }
+        
+        .success-page-grid .video-quote blockquote {
+            font-style: italic;
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+            position: relative;
+            text-align: left;
+        }
+        
+        .success-page-grid .video-author strong {
+            color: #d4af37;
+            font-weight: 600;
         }
         
         .story-card-extended {
@@ -290,9 +337,18 @@
                 font-size: 2.2em;
             }
             
-            .extended-stories-grid {
+            .extended-stories-grid,
+            .success-page-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
+            }
+            
+            .success-page-grid .video-quote {
+                padding: 20px;
+            }
+            
+            .success-page-grid .video-quote blockquote {
+                font-size: 1em;
             }
             
             .story-card-extended {
@@ -362,293 +418,213 @@
                 </div>
             </div>
 
-            <!-- Extended Stories Grid -->
-            <div class="extended-stories-grid">
-                <!-- Story 1 - Oda Abrahamsen -->
-                <div class="story-card-extended">
-                    <div class="story-header">
-                        <div class="story-avatar">O</div>
-                        <div class="story-info">
-                            <div class="story-name">Oda Abrahamsen</div>
-                            <div class="story-location">🇳🇴 Norway</div>
-                            <a href="https://www.youtube.com/watch?v=fIYuF4OQMmM" target="_blank" class="video-link">
-                                <span class="video-icon">▶️</span>
-                                Watch Testimonial
-                            </a>
-                        </div>
+            <!-- Video Testimonials Grid -->
+            <div class="video-testimonials-grid success-page-grid">
+                <!-- Video 1 - Oda Abrahamsen -->
+                <div class="video-testimonial-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/fIYuF4OQMmM?rel=0&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div class="extended-quote">
-                        Since I've joined iGenius I've had the most amazing personal growth. Once you learn the skill of trading, it's always with you. It's also powerful as a woman to say that I know how to trade, invest, and build a portfolio. It's truly empowering.
+                    <div class="video-quote">
+                        <blockquote>"Since I've joined iGenius I've had the most amazing personal growth. Once you learn the skill of trading, it's always with you. It's also powerful as a woman to say that I know how to trade, invest, and build a portfolio. It's truly empowering."</blockquote>
+                        <div class="video-author">
+                            <strong>- Oda Abrahamsen, Norway 🇳🇴</strong>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Story 2 - Alexandra Valdebenito -->
-                <div class="story-card-extended">
-                    <div class="story-header">
-                        <div class="story-avatar">A</div>
-                        <div class="story-info">
-                            <div class="story-name">Alexandra Valdebenito</div>
-                            <div class="story-location">🇸🇪 Sweden</div>
-                            <a href="https://www.youtube.com/watch?v=skQ-QedhCpA" target="_blank" class="video-link">
-                                <span class="video-icon">▶️</span>
-                                Watch Testimonial
-                            </a>
-                        </div>
+                <!-- Video 2 - Alexandra Valdebenito -->
+                <div class="video-testimonial-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/skQ-QedhCpA?rel=0&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div class="extended-quote">
-                        This opportunity has completely changed my life and my perspective. I'm so grateful to be a part of iGenius, it's the best place to be.
+                    <div class="video-quote">
+                        <blockquote>"This opportunity has completely changed my life and my perspective. I'm so grateful to be a part of iGenius, it's the best place to be."</blockquote>
+                        <div class="video-author">
+                            <strong>- Alexandra Valdebenito, Sweden 🇸🇪</strong>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Story 3 - Evie Bishop -->
-                <div class="story-card-extended">
-                    <div class="story-header">
-                        <div class="story-avatar">E</div>
-                        <div class="story-info">
-                            <div class="story-name">Evie Bishop</div>
-                            <div class="story-location">🏴󠁧󠁢󠁷󠁬󠁳󠁿 Wales</div>
-                            <a href="https://www.youtube.com/watch?v=FKif3oBXrfw" target="_blank" class="video-link">
-                                <span class="video-icon">▶️</span>
-                                Watch Testimonial
-                            </a>
-                        </div>
+                <!-- Video 3 - Evie Bishop -->
+                <div class="video-testimonial-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/FKif3oBXrfw?rel=0&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div class="extended-quote">
-                        iGenius has been a personal development journey for me. The iGenius platform is so good for developing confidence, gaining a great education, and learning high income skillsets. What you get with iGenius is unmatched.
+                    <div class="video-quote">
+                        <blockquote>"iGenius has been a personal development journey for me. The iGenius platform is so good for developing confidence, gaining a great education, and learning high income skillsets. What you get with iGenius is unmatched."</blockquote>
+                        <div class="video-author">
+                            <strong>- Evie Bishop, Wales 🏴󠁧󠁢󠁷󠁬󠁳󠁿</strong>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Story 4 - Aurora Giancola -->
-                <div class="story-card-extended">
-                    <div class="story-header">
-                        <div class="story-avatar">A</div>
-                        <div class="story-info">
-                            <div class="story-name">Aurora Giancola</div>
-                            <div class="story-location">🇮🇹 Italy</div>
-                            <a href="https://www.youtube.com/watch?v=3v27VZSMnQA" target="_blank" class="video-link">
-                                <span class="video-icon">▶️</span>
-                                Watch Testimonial
-                            </a>
-                        </div>
+                <!-- Video 4 - Aurora Giancola -->
+                <div class="video-testimonial-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/3v27VZSMnQA?rel=0&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div class="extended-quote">
-                        As someone who had no prior financial experience, I was so intimidated to get started and make mistakes. iGenius was a lifesaver because everything is made in such an easy and simple way for anybody to comprehend and to use. I'm so glad I found iGenius and I will always recommend iGenius to those who want to level up their finances.
+                    <div class="video-quote">
+                        <blockquote>"As someone who had no prior financial experience, I was so intimidated to get started and make mistakes. iGenius was a lifesaver because everything is made in such an easy and simple way for anybody to comprehend and to use. I'm so glad I found iGenius and I will always recommend iGenius to those who want to level up their finances."</blockquote>
+                        <div class="video-author">
+                            <strong>- Aurora Giancola, Italy 🇮🇹</strong>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Story 5 - Sayna Alipanah -->
-                <div class="story-card-extended">
-                    <div class="story-header">
-                        <div class="story-avatar">S</div>
-                        <div class="story-info">
-                            <div class="story-name">Sayna Alipanah</div>
-                            <div class="story-location">🇨🇦 Canada</div>
-                            <a href="https://www.youtube.com/watch?v=Uss-c02qnOM" target="_blank" class="video-link">
-                                <span class="video-icon">▶️</span>
-                                Watch Testimonial
-                            </a>
-                        </div>
+                <!-- Video 5 - Sayna Alipanah -->
+                <div class="video-testimonial-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/Uss-c02qnOM?rel=0&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div class="extended-quote">
-                        MONEYpro is a hidden gem inside of iGenius! MONEYpro taught me how to track my spending, create an emergency fund, and pay off debts. Because of MONEYpro, I am much more financially literate as a whole.
+                    <div class="video-quote">
+                        <blockquote>"MONEYpro is a hidden gem inside of iGenius! MONEYpro taught me how to track my spending, create an emergency fund, and pay off debts. Because of MONEYpro, I am much more financially literate as a whole."</blockquote>
+                        <div class="video-author">
+                            <strong>- Sayna Alipanah, Canada 🇨🇦</strong>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Story 6 - Kristel Gomez -->
-                <div class="story-card-extended">
-                    <div class="story-header">
-                        <div class="story-avatar">K</div>
-                        <div class="story-info">
-                            <div class="story-name">Kristel Gomez</div>
-                            <div class="story-location">🇲🇽 Mexico</div>
-                            <a href="https://www.youtube.com/watch?v=JxJaWVen8bA" target="_blank" class="video-link">
-                                <span class="video-icon">▶️</span>
-                                Watch Testimonial
-                            </a>
-                        </div>
+                <!-- Video 6 - Kristel Gomez -->
+                <div class="video-testimonial-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/JxJaWVen8bA?rel=0&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div class="extended-quote">
-                        I really wanted to learn how to manage, make, and save my money. I feel so grateful to be a part of this iGenius platform because it has absolutely changed my life in so many ways.
+                    <div class="video-quote">
+                        <blockquote>"I really wanted to learn how to manage, make, and save my money. I feel so grateful to be a part of this iGenius platform because it has absolutely changed my life in so many ways."</blockquote>
+                        <div class="video-author">
+                            <strong>- Kristel Gomez, Mexico 🇲🇽</strong>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Story 7 - Anthony Napolitano -->
-                <div class="story-card-extended">
-                    <div class="story-header">
-                        <div class="story-avatar">A</div>
-                        <div class="story-info">
-                            <div class="story-name">Anthony Napolitano</div>
-                            <div class="story-location">🇺🇸 USA</div>
-                            <a href="https://www.youtube.com/watch?v=7ngufvkmkII" target="_blank" class="video-link">
-                                <span class="video-icon">▶️</span>
-                                Watch Testimonial
-                            </a>
-                        </div>
+                <!-- Video 7 - Anthony Napolitano -->
+                <div class="video-testimonial-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/7ngufvkmkII?rel=0&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div class="extended-quote">
-                        My favorite thing about the platform is getting access to the third-party relationships that iGenius has created for their members. I truly love it because the average person gets access to these services just by being a part of iGenius.
+                    <div class="video-quote">
+                        <blockquote>"My favorite thing about the platform is getting access to the third-party relationships that iGenius has created for their members. I truly love it because the average person gets access to these services just by being a part of iGenius."</blockquote>
+                        <div class="video-author">
+                            <strong>- Anthony Napolitano, USA 🇺🇸</strong>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Story 8 - Christian Perez -->
-                <div class="story-card-extended">
-                    <div class="story-header">
-                        <div class="story-avatar">C</div>
-                        <div class="story-info">
-                            <div class="story-name">Christian Perez</div>
-                            <div class="story-location">🇨🇦 Canada</div>
-                            <a href="https://www.youtube.com/watch?v=F8J7NHaZlHE" target="_blank" class="video-link">
-                                <span class="video-icon">▶️</span>
-                                Watch Testimonial
-                            </a>
-                        </div>
+                <!-- Video 8 - Christian Perez -->
+                <div class="video-testimonial-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/F8J7NHaZlHE?rel=0&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div class="extended-quote">
-                        Going through the MONEYpro videos, book, and resources taught me how to find financial leaks and plug them to make sure that I don't lose money. Because of iGenius, I now have the skills and tools to manage my money and investments over time.
+                    <div class="video-quote">
+                        <blockquote>"Going through the MONEYpro videos, book, and resources taught me how to find financial leaks and plug them to make sure that I don't lose money. Because of iGenius, I now have the skills and tools to manage my money and investments over time."</blockquote>
+                        <div class="video-author">
+                            <strong>- Christian Perez, Canada 🇨🇦</strong>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Story 9 - Christina Haider -->
-                <div class="story-card-extended">
-                    <div class="story-header">
-                        <div class="story-avatar">C</div>
-                        <div class="story-info">
-                            <div class="story-name">Christina Haider</div>
-                            <div class="story-location">🇦🇹 Austria</div>
-                            <a href="https://www.youtube.com/watch?v=dR2rF7NGNjE" target="_blank" class="video-link">
-                                <span class="video-icon">▶️</span>
-                                Watch Testimonial
-                            </a>
-                        </div>
+                <!-- Video 9 - Christina Haider -->
+                <div class="video-testimonial-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dR2rF7NGNjE?rel=0&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div class="extended-quote">
-                        Before iGenius I had a really bad money mindset. I've now learned about the financial markets and how I can let money work for me. Because of all of these changes I've made, I've now gained location and time freedom, something that I've always wanted.
+                    <div class="video-quote">
+                        <blockquote>"Before iGenius I had a really bad money mindset. I've now learned about the financial markets and how I can let money work for me. Because of all of these changes I've made, I've now gained location and time freedom, something that I've always wanted."</blockquote>
+                        <div class="video-author">
+                            <strong>- Christina Haider, Austria 🇦🇹</strong>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Story 10 - Niamh Murphy -->
-                <div class="story-card-extended">
-                    <div class="story-header">
-                        <div class="story-avatar">N</div>
-                        <div class="story-info">
-                            <div class="story-name">Niamh Murphy</div>
-                            <div class="story-location">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland</div>
-                            <a href="https://www.youtube.com/watch?v=iO2m6jUsQ-0" target="_blank" class="video-link">
-                                <span class="video-icon">▶️</span>
-                                Watch Testimonial
-                            </a>
-                        </div>
+                <!-- Video 10 - Niamh Murphy -->
+                <div class="video-testimonial-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/iO2m6jUsQ-0?rel=0&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div class="extended-quote">
-                        I joined iGenius not thinking much of it. I knew it was going to be good for me, but I didn't realize how good. It has changed so many aspects of my life.
+                    <div class="video-quote">
+                        <blockquote>"I joined iGenius not thinking much of it. I knew it was going to be good for me, but I didn't realize how good. It has changed so many aspects of my life."</blockquote>
+                        <div class="video-author">
+                            <strong>- Niamh Murphy, Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿</strong>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Story 11 - Jeremy Harding -->
-                <div class="story-card-extended">
-                    <div class="story-header">
-                        <div class="story-avatar">J</div>
-                        <div class="story-info">
-                            <div class="story-name">Jeremy Harding</div>
-                            <div class="story-location">🇺🇸 USA</div>
-                            <a href="https://www.youtube.com/watch?v=gOmTwaPDnlI" target="_blank" class="video-link">
-                                <span class="video-icon">▶️</span>
-                                Watch Testimonial
-                            </a>
-                        </div>
+                <!-- Video 11 - Jeremy Harding -->
+                <div class="video-testimonial-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/gOmTwaPDnlI?rel=0&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div class="extended-quote">
-                        We have a University where we can take the time to educate ourselves and gain a more in depth knowledge. If you think about investing, but don't know where to start, this is a great way to learn more.
+                    <div class="video-quote">
+                        <blockquote>"We have a University where we can take the time to educate ourselves and gain a more in depth knowledge. If you think about investing, but don't know where to start, this is a great way to learn more."</blockquote>
+                        <div class="video-author">
+                            <strong>- Jeremy Harding, USA 🇺🇸</strong>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Story 12 - Stephanie Bonilla -->
-                <div class="story-card-extended">
-                    <div class="story-header">
-                        <div class="story-avatar">S</div>
-                        <div class="story-info">
-                            <div class="story-name">Stephanie Bonilla</div>
-                            <div class="story-location">🇺🇸 USA</div>
-                            <a href="https://www.youtube.com/watch?v=oj5eeh8cBos" target="_blank" class="video-link">
-                                <span class="video-icon">▶️</span>
-                                Watch Testimonial
-                            </a>
-                        </div>
+                <!-- Video 12 - Stephanie Bonilla -->
+                <div class="video-testimonial-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/oj5eeh8cBos?rel=0&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div class="extended-quote">
-                        I buckled down on the education, I took a leap of faith, I put my money into the platform of services, and I was able to make a sufficient amount of income to provide for my family.
+                    <div class="video-quote">
+                        <blockquote>"I buckled down on the education, I took a leap of faith, I put my money into the platform of services, and I was able to make a sufficient amount of income to provide for my family."</blockquote>
+                        <div class="video-author">
+                            <strong>- Stephanie Bonilla, USA 🇺🇸</strong>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Story 13 - Larisa Meskic -->
-                <div class="story-card-extended">
-                    <div class="story-header">
-                        <div class="story-avatar">L</div>
-                        <div class="story-info">
-                            <div class="story-name">Larisa Meskic</div>
-                            <div class="story-location">🌍 Global Member</div>
-                            <a href="https://www.youtube.com/watch?v=0ACexJmE88Q" target="_blank" class="video-link">
-                                <span class="video-icon">▶️</span>
-                                Watch Testimonial
-                            </a>
-                        </div>
+                <!-- Video 13 - Larisa Meskic -->
+                <div class="video-testimonial-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/0ACexJmE88Q?rel=0&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div class="extended-quote">
-                        Watch Larisa share her transformation story and how iGenius changed her perspective on financial education and personal growth.
+                    <div class="video-quote">
+                        <blockquote>"Watch Larisa share her transformation story and how iGenius changed her perspective on financial education and personal growth."</blockquote>
+                        <div class="video-author">
+                            <strong>- Larisa Meskic, Global Member 🌍</strong>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Story 14 - Eman Gelan -->
-                <div class="story-card-extended">
-                    <div class="story-header">
-                        <div class="story-avatar">E</div>
-                        <div class="story-info">
-                            <div class="story-name">Eman Gelan</div>
-                            <div class="story-location">🌍 Global Member</div>
-                            <a href="https://www.youtube.com/watch?v=KvXLfOSSFnM" target="_blank" class="video-link">
-                                <span class="video-icon">▶️</span>
-                                Watch Testimonial
-                            </a>
-                        </div>
+                <!-- Video 14 - Eman Gelan -->
+                <div class="video-testimonial-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/KvXLfOSSFnM?rel=0&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div class="extended-quote">
-                        Discover how Eman's journey with iGenius led to financial literacy and personal empowerment through education and community support.
+                    <div class="video-quote">
+                        <blockquote>"Discover how Eman's journey with iGenius led to financial literacy and personal empowerment through education and community support."</blockquote>
+                        <div class="video-author">
+                            <strong>- Eman Gelan, Global Member 🌍</strong>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Story 15 - Samara Gaskins -->
-                <div class="story-card-extended">
-                    <div class="story-header">
-                        <div class="story-avatar">S</div>
-                        <div class="story-info">
-                            <div class="story-name">Samara Gaskins</div>
-                            <div class="story-location">🌍 Global Member</div>
-                            <a href="https://www.youtube.com/watch?v=3LUbYj4sbwQ" target="_blank" class="video-link">
-                                <span class="video-icon">▶️</span>
-                                Watch Testimonial
-                            </a>
-                        </div>
+                <!-- Video 15 - Samara Gaskins -->
+                <div class="video-testimonial-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/3LUbYj4sbwQ?rel=0&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div class="extended-quote">
-                        Learn about Samara's experience with the iGenius platform and how it transformed her approach to wealth building and financial independence.
+                    <div class="video-quote">
+                        <blockquote>"Learn about Samara's experience with the iGenius platform and how it transformed her approach to wealth building and financial independence."</blockquote>
+                        <div class="video-author">
+                            <strong>- Samara Gaskins, Global Member 🌍</strong>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Story 16 - Winona Twin -->
-                <div class="story-card-extended">
-                    <div class="story-header">
-                        <div class="story-avatar">W</div>
-                        <div class="story-info">
-                            <div class="story-name">Winona Twin</div>
-                            <div class="story-location">🌍 Global Member</div>
-                            <a href="https://www.youtube.com/watch?v=q1NTdoEVl_Y" target="_blank" class="video-link">
-                                <span class="video-icon">▶️</span>
-                                Watch Testimonial
-                            </a>
-                        </div>
+                <!-- Video 16 - Winona Twin -->
+                <div class="video-testimonial-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/q1NTdoEVl_Y?rel=0&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div class="extended-quote">
-                        Hear Winona's inspiring story of transformation and how the iGenius community and education platform created new opportunities in her life.
+                    <div class="video-quote">
+                        <blockquote>"Hear Winona's inspiring story of transformation and how the iGenius community and education platform created new opportunities in her life."</blockquote>
+                        <div class="video-author">
+                            <strong>- Winona Twin, Global Member 🌍</strong>
+                        </div>
                     </div>
                 </div>
             </div>
