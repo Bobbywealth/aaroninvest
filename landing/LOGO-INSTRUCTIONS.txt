@@ -1,0 +1,26 @@
+🎨 AARON INVEST LOGO SETUP INSTRUCTIONS
+=========================================
+
+To use your custom "Aaron Invest" logo on the website:
+
+1. Save your logo image file as: "aaron-invest-logo.png" 
+   (in the same folder as index.html)
+
+2. Recommended logo specs:
+   - Format: PNG (with transparent background)
+   - Height: 80-120px (will auto-resize to 40px on page)
+   - Width: Proportional (max 400px recommended)
+   - File size: Keep under 100KB for fast loading
+
+3. The logo will automatically:
+   - Resize to fit the navbar (40px height)
+   - Scale smaller on mobile (32-36px)
+   - Show hover effects (glow + scale)
+   - Fallback to "Aaron Invest" text if image fails to load
+
+4. Current logo path expected: 
+   /landing/aaron-invest-logo.png
+
+5. If your logo has a dark background, let me know and I can adjust the styling!
+
+✅ All "iGenius" branding has been replaced with "Aaron Invest"
