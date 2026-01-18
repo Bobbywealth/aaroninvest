@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Stories - Aaron Invest</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .success-page {
+            padding-top: 120px;
+            min-height: 100vh;
+        }
+        
+        .back-nav {
+            margin-bottom: 40px;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+        
+        .back-link::before {
+            content: '←';
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .page-header h1 {
+            font-size: 3em;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .page-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #d4af37, #f0d060);
+            border-radius: 2px;
+        }
+        
+        .page-subtitle {
+            font-size: 1.3em;
+            color: #cccccc;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .stats-banner {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px 0 80px 0;
+            text-align: center;
+        }
+        
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            color: #999999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .extended-stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+        
+        .story-card-extended {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 15px;
+            padding: 35px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-card-extended::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #d4af37, #f0d060);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .story-card-extended:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
+        }
+        
+        .story-card-extended:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .story-timeline {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .timeline-item {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .timeline-label {
+            font-size: 0.8em;
+            color: #999999;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        
+        .timeline-value {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        .timeline-arrow {
+            color: #d4af37;
+            font-size: 1.2em;
+        }
+        
+        .extended-quote {
+            font-style: italic;
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #e0e0e0;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid #d4af37;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(240, 208, 96, 0.05));
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 15px;
+            padding: 50px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.2em;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2em;
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-cta {
+            display: inline-block;
+            padding: 18px 35px;
+            background: linear-gradient(135deg, #d4af37, #f0d060);
+            color: #000000;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #d4af37;
+            color: #d4af37;
+        }
+        
+        .btn-secondary:hover {
+            background: #d4af37;
+            color: #000000;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.2em;
+            }
+            
+            .extended-stories-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .story-card-extended {
+                padding: 25px;
+            }
+            
+            .cta-section {
+                padding: 35px 25px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="aaron-invest-logo.png" alt="Aaron Invest" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="logo-text" style="display: none;">Aaron Invest</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="success-page">
+        <div class="container">
+            <!-- Back Navigation -->
+            <div class="back-nav">
+                <a href="index.html" class="back-link">Back to Home</a>
+            </div>
+
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>Success Stories</h1>
+                <p class="page-subtitle">Real people, real transformations. These are the stories of ordinary individuals who followed Aaron's system and achieved extraordinary results.</p>
+            </div>
+
+            <!-- Stats Banner -->
+            <div class="stats-banner">
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <span class="stat-number">847</span>
+                        <span class="stat-label">Success Stories</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">$12.4M</span>
+                        <span class="stat-label">Total Generated</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">73 Days</span>
+                        <span class="stat-label">Average Time to Success</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">94%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Extended Stories Grid -->
+            <div class="extended-stories-grid">
+                <!-- Story 1 - Detailed -->
+                <div class="story-card-extended">
+                    <div class="story-avatar">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 70 70'%3E%3Ccircle cx='35' cy='35' r='35' fill='%23d4af37'/%3E%3Ctext x='35' y='40' font-family='Arial' font-size='24' fill='white' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E" alt="Marcus">
+                    </div>
+                    <div class="story-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-label">Before</div>
+                            <div class="timeline-value">$847/month</div>
+                        </div>
+                        <div class="timeline-arrow">→</div>
+                        <div class="timeline-item">
+                            <div class="timeline-label">After 60 Days</div>
+                            <div class="timeline-value">$47,000</div>
+                        </div>
+                    </div>
+                    <div class="extended-quote">
+                        "I was driving for Uber 12 hours a day just to make ends meet. My wife was working two jobs, and we still couldn't save anything. When I found Aaron's system, I was skeptical - I'd been burned before. But something about his approach felt different. He didn't promise overnight success; he promised a real system. Within the first week, I could see the logic behind every step. By day 30, I had my first $8,000 month. By day 60, I made more in one month than I used to make in a year. We've paid off our debts, bought our dream home, and I'm now helping others achieve the same transformation."
+                    </div>
+                    <div class="story-author">
+                        <strong>Marcus Thompson</strong>
+                        <span>Former Uber Driver → Full-Time Investor</span>
+                    </div>
+                </div>
+
+                <!-- Story 2 -->
+                <div class="story-card-extended">
+                    <div class="story-avatar">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 70 70'%3E%3Ccircle cx='35' cy='35' r='35' fill='%23d4af37'/%3E%3Ctext x='35' y='40' font-family='Arial' font-size='24' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" alt="Sarah">
+                    </div>
+                    <div class="story-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-label">Before</div>
+                            <div class="timeline-value">Single mom, $0 savings</div>
+                        </div>
+                        <div class="timeline-arrow">→</div>
+                        <div class="timeline-item">
+                            <div class="timeline-label">After 90 Days</div>
+                            <div class="timeline-value">$83,500</div>
+                        </div>
+                    </div>
+                    <div class="extended-quote">
+                        "As a single mother working as a nurse, I barely had time to sleep, let alone think about investments. I had zero business experience and was living paycheck to paycheck. Aaron's system changed everything because it was designed for people like me - busy, overwhelmed, but determined. The step-by-step approach meant I could work on it during my breaks, late at night after the kids were asleep. The community support was incredible. Now I work from home, spend quality time with my children, and we're financially free for the first time ever."
+                    </div>
+                    <div class="story-author">
+                        <strong>Sarah Martinez</strong>
+                        <span>Registered Nurse → Home-Based Entrepreneur</span>
+                    </div>
+                </div>
+
+                <!-- Story 3 -->
+                <div class="story-card-extended">
+                    <div class="story-avatar">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 70 70'%3E%3Ccircle cx='35' cy='35' r='35' fill='%23d4af37'/%3E%3Ctext x='35' y='40' font-family='Arial' font-size='24' fill='white' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" alt="Robert">
+                    </div>
+                    <div class="story-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-label">Before</div>
+                            <div class="timeline-value">Retired, fixed income</div>
+                        </div>
+                        <div class="timeline-arrow">→</div>
+                        <div class="timeline-item">
+                            <div class="timeline-label">After 4 Months</div>
+                            <div class="timeline-value">$156,000</div>
+                        </div>
+                    </div>
+                    <div class="extended-quote">
+                        "I taught high school math for 35 years and thought I was done learning. My pension wasn't enough to live comfortably, and at 67, I felt too old to start something new. Aaron's system proved age is just a number. The mathematical logic behind his approach appealed to my analytical mind. What impressed me most was the mentorship - Aaron personally helped me when I got stuck. Now I'm not just financially comfortable; I'm thriving and teaching others in my community the same principles."
+                    </div>
+                    <div class="story-author">
+                        <strong>Robert Kim</strong>
+                        <span>Retired Teacher → Investment Mentor</span>
+                    </div>
+                </div>
+
+                <!-- Story 4 -->
+                <div class="story-card-extended">
+                    <div class="story-avatar">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 70 70'%3E%3Ccircle cx='35' cy='35' r='35' fill='%23d4af37'/%3E%3Ctext x='35' y='40' font-family='Arial' font-size='24' fill='white' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E" alt="Jessica">
+                    </div>
+                    <div class="story-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-label">Before</div>
+                            <div class="timeline-value">$2,400/month</div>
+                        </div>
+                        <div class="timeline-arrow">→</div>
+                        <div class="timeline-item">
+                            <div class="timeline-label">After 75 Days</div>
+                            <div class="timeline-value">$92,400</div>
+                        </div>
+                    </div>
+                    <div class="extended-quote">
+                        "I was drowning in student loans and credit card debt. Every month felt like I was falling further behind despite working overtime as a nurse. I'd tried other 'opportunities' before and lost money I couldn't afford to lose. Aaron's transparency from day one made the difference. He showed me exactly how the system worked, the risks involved, and realistic timelines. The support system is unmatched - 24/7 access to mentors who've walked this path. Now I'm debt-free and building generational wealth."
+                    </div>
+                    <div class="story-author">
+                        <strong>Jessica Liu</strong>
+                        <span>ICU Nurse → Financial Freedom Coach</span>
+                    </div>
+                </div>
+
+                <!-- Story 5 -->
+                <div class="story-card-extended">
+                    <div class="story-avatar">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 70 70'%3E%3Ccircle cx='35' cy='35' r='35' fill='%23d4af37'/%3E%3Ctext x='35' y='40' font-family='Arial' font-size='24' fill='white' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E" alt="David">
+                    </div>
+                    <div class="story-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-label">Before</div>
+                            <div class="timeline-value">Construction worker</div>
+                        </div>
+                        <div class="timeline-arrow">→</div>
+                        <div class="timeline-item">
+                            <div class="timeline-label">After 8 Weeks</div>
+                            <div class="timeline-value">$64,200</div>
+                        </div>
+                    </div>
+                    <div class="extended-quote">
+                        "Construction work destroyed my body. At 42, I could barely get out of bed in the morning. My wife suggested I look into other options, but with just a high school education, I felt stuck. Aaron's system doesn't require a college degree or special skills - just the willingness to learn and apply. The step-by-step training made everything clear. Eight weeks later, I earned more than I used to make in six months of backbreaking labor. Now I'm building my family's future instead of breaking my back."
+                    </div>
+                    <div class="story-author">
+                        <strong>David Rodriguez</strong>
+                        <span>Construction Worker → Digital Entrepreneur</span>
+                    </div>
+                </div>
+
+                <!-- Story 6 -->
+                <div class="story-card-extended">
+                    <div class="story-avatar">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 70 70'%3E%3Ccircle cx='35' cy='35' r='35' fill='%23d4af37'/%3E%3Ctext x='35' y='40' font-family='Arial' font-size='24' fill='white' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E" alt="Amanda">
+                    </div>
+                    <div class="story-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-label">Before</div>
+                            <div class="timeline-value">Waitress, no savings</div>
+                        </div>
+                        <div class="timeline-arrow">→</div>
+                        <div class="timeline-item">
+                            <div class="timeline-label">After 12 Weeks</div>
+                            <div class="timeline-value">$128,750</div>
+                        </div>
+                    </div>
+                    <div class="extended-quote">
+                        "I was 28 years old, still waitressing, and watching all my friends buy houses while I could barely afford rent. I felt like I was falling behind in life. Aaron's system gave me hope for the first time in years. What I loved most was the community - hundreds of people cheering each other on, sharing wins and losses. The transparency was incredible. Aaron shows you his actual results, not just screenshots. Twelve weeks later, I had more money than I'd ever imagined possible. Now I'm helping other servers break free from the paycheck-to-paycheck cycle."
+                    </div>
+                    <div class="story-author">
+                        <strong>Amanda Chen</strong>
+                        <span>Server → Investment Strategist</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action Section -->
+            <div class="cta-section">
+                <h2>Your Success Story Starts Here</h2>
+                <p>Join the hundreds of people who've transformed their lives with Aaron's proven system. Stop watching others succeed - start building your own empire.</p>
+                <div class="cta-buttons">
+                    <a href="https://t.me/aaroninvests" class="btn-cta btn-secondary">Join Community First</a>
+                    <a href="https://example.com/get-started" class="btn-cta">Start Your Transformation</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Questions? Email us at <strong>Investing@Aaroninvestments.com</strong></p>
+            <p style="margin-top: 15px; font-size: 0.9em; color: #999;">
+                <a href="privacy-policy.html" style="color: #d4af37; text-decoration: none;">Privacy Policy</a> | 
+                © 2026 Aaron Invest. All rights reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
