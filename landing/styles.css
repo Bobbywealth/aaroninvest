@@ -217,31 +217,7 @@ body {
         position: relative;
     }
     
-    .video-container::after {
-        content: 'Tap to Play';
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: rgba(0, 0, 0, 0.8);
-        color: #d4af37;
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: 600;
-        opacity: 0.8;
-        z-index: 5;
-        animation: tapHint 2s ease-in-out infinite alternate;
-    }
-    
-    .video-container.playing::after {
-        display: none;
-    }
-}
-
-@keyframes tapHint {
-    0% { opacity: 0.6; transform: translateX(-50%) scale(0.95); }
-    100% { opacity: 1; transform: translateX(-50%) scale(1.05); }
+    /* Removed tap-to-play overlay to allow native Vimeo controls */
 }
 
 .video-container iframe {
@@ -813,16 +789,9 @@ body {
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
     }
     
+    /* Allow video iframe interactions on mobile */
     .video-container iframe {
-        pointer-events: none;
-    }
-    
-    .video-container.active iframe {
         pointer-events: all;
-    }
-    
-    .mobile-play-overlay {
-        backdrop-filter: blur(2px);
     }
     
     .sticky-cta {
@@ -971,34 +940,27 @@ body {
     }
     
     .hero-badge {
-        font-size: 11px;
-        padding: 6px 12px;
-        letter-spacing: 0.3px;
-        white-space: nowrap;
-        max-width: 90%;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        font-size: 12px;
+        padding: 6px 14px;
+        letter-spacing: 0.5px;
     }
 }
 
 /* Extra small mobile devices (iPhone SE, etc.) */
 @media (max-width: 375px) {
     .hero-badge {
-        font-size: 10px;
-        padding: 5px 10px;
-        letter-spacing: 0.2px;
-        max-width: 85%;
-        word-break: keep-all;
+        font-size: 11px;
+        padding: 5px 12px;
+        letter-spacing: 0.3px;
     }
 }
 
 /* Very small screens */
 @media (max-width: 320px) {
     .hero-badge {
-        font-size: 9px;
-        padding: 4px 8px;
-        letter-spacing: 0.1px;
-        max-width: 80%;
+        font-size: 10px;
+        padding: 4px 10px;
+        letter-spacing: 0.2px;
     }
     
     .urgency-content {
