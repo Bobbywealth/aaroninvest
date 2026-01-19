@@ -871,12 +871,13 @@ body {
     }
     
     .hero {
-        padding: 100px 0 40px;
+        padding: 120px 0 40px;
         min-height: auto;
     }
     
     .hero-text {
         margin-bottom: 40px;
+        margin-top: 20px;
     }
     
     .hero-video {
