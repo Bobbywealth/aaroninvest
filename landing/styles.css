@@ -970,6 +970,12 @@ body {
         font-size: 16px;
     }
     
+    .hero-badge {
+        font-size: 12px;
+        padding: 6px 16px;
+        letter-spacing: 0.5px;
+    }
+    
     .urgency-content {
         flex-direction: column;
         gap: 8px;
@@ -1314,6 +1320,12 @@ body {
 
 /* Mobile Responsiveness for Success Stories */
 @media (max-width: 768px) {
+    .hero-badge {
+        font-size: 13px;
+        padding: 7px 20px;
+        letter-spacing: 0.8px;
+    }
+    
     .success-stories {
         padding: 60px 0;
     }
