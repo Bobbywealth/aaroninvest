@@ -35,7 +35,7 @@
                         <p>6 minutes of educational content</p>
                     </div>
                     <div class="video-container">
-                        <iframe src="https://player.vimeo.com/video/1156132873?autoplay=1&muted=0&controls=1&loop=1&playsinline=1&background=0&byline=0&portrait=0&title=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen>
+                        <iframe src="https://player.vimeo.com/video/1156132873?autoplay=1&muted=1&controls=1&loop=1&playsinline=1&background=0&byline=0&portrait=0&title=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen>
                     </div>
                     <div class="video-footer">
                         <div class="social-proof-mini">
@@ -347,7 +347,7 @@
             stickyCTA.classList.add('visible');
         }, 2000);
         
-        // Mobile video optimization with audio autoplay attempt
+        // Mobile video optimization with tap-to-unmute
         if (window.innerWidth <= 768) {
             const videoContainer = document.querySelector('.video-container');
             const iframe = videoContainer.querySelector('iframe');
@@ -359,25 +359,80 @@
             // Ensure video container has proper positioning for mobile
             videoContainer.style.position = 'relative';
             
-            // Attempt to enable audio on first user interaction
-            let audioEnabled = false;
-            function enableAudio() {
-                if (!audioEnabled && iframe.contentWindow) {
-                    try {
-                        // Try to unmute via Vimeo Player API
-                        iframe.contentWindow.postMessage('{"method":"setVolume","value":1}', 'https://player.vimeo.com');
-                        iframe.contentWindow.postMessage('{"method":"play"}', 'https://player.vimeo.com');
-                        audioEnabled = true;
-                    } catch (e) {
-                        console.log('Audio autoplay not allowed by browser');
-                    }
-                }
-            }
+            // Create tap-to-unmute overlay
+            const unmuteOverlay = document.createElement('div');
+            unmuteOverlay.className = 'unmute-overlay';
+            unmuteOverlay.innerHTML = `
+                <div class="unmute-button">
+                    <div class="sound-icon">🔊</div>
+                    <div class="unmute-text">Tap for Sound</div>
+                </div>
+            `;
             
-            // Enable audio on first touch/scroll
-            document.addEventListener('touchstart', enableAudio, { once: true });
-            document.addEventListener('scroll', enableAudio, { once: true });
-            document.addEventListener('click', enableAudio, { once: true });
+            unmuteOverlay.style.cssText = `
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.6);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                z-index: 15;
+                backdrop-filter: blur(2px);
+                transition: opacity 0.3s ease;
+            `;
+            
+            const unmuteButton = unmuteOverlay.querySelector('.unmute-button');
+            unmuteButton.style.cssText = `
+                background: linear-gradient(45deg, #d4af37, #e6c068);
+                color: #000;
+                padding: 20px 30px;
+                border-radius: 50px;
+                text-align: center;
+                box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+                transform: scale(1);
+                transition: all 0.2s ease;
+            `;
+            
+            const soundIcon = unmuteButton.querySelector('.sound-icon');
+            soundIcon.style.cssText = `
+                font-size: 28px;
+                margin-bottom: 5px;
+            `;
+            
+            const unmuteText = unmuteButton.querySelector('.unmute-text');
+            unmuteText.style.cssText = `
+                font-size: 14px;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+            `;
+            
+            videoContainer.appendChild(unmuteOverlay);
+            
+            // Handle tap to unmute
+            unmuteOverlay.addEventListener('click', function() {
+                // Immediately unmute and play with sound
+                iframe.contentWindow.postMessage('{"method":"setVolume","value":1}', 'https://player.vimeo.com');
+                iframe.contentWindow.postMessage('{"method":"play"}', 'https://player.vimeo.com');
+                
+                // Remove overlay with fade effect
+                unmuteOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    unmuteOverlay.remove();
+                }, 300);
+            });
+            
+            // Add hover effect
+            unmuteButton.addEventListener('touchstart', function() {
+                unmuteButton.style.transform = 'scale(0.95)';
+            });
+            
+            unmuteButton.addEventListener('touchend', function() {
+                unmuteButton.style.transform = 'scale(1.05)';
+            });
         }
     </script>
 </body>
