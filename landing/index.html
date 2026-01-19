@@ -35,7 +35,7 @@
                         <p>6 minutes of educational content</p>
                     </div>
                     <div class="video-container">
-                        <iframe src="https://player.vimeo.com/video/1156132873?autoplay=1&controls=1&loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://player.vimeo.com/video/1156132873?autoplay=1&muted=0&controls=1&loop=1&playsinline=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="video-footer">
                         <div class="social-proof-mini">
@@ -347,56 +347,17 @@
             stickyCTA.classList.add('visible');
         }, 2000);
         
-        // Mobile video optimization
+        // Mobile video optimization - simplified approach
         if (window.innerWidth <= 768) {
             const videoContainer = document.querySelector('.video-container');
             const iframe = videoContainer.querySelector('iframe');
             
-            // Add mobile-specific attributes
+            // Add mobile-specific attributes only
             iframe.setAttribute('playsinline', '');
             iframe.setAttribute('webkit-playsinline', '');
             
-            // Add touch-friendly play overlay
-            const playOverlay = document.createElement('div');
-            playOverlay.className = 'mobile-play-overlay';
-            playOverlay.innerHTML = '<div class="play-button">▶</div>';
-            playOverlay.style.cssText = `
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(0,0,0,0.3);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                z-index: 10;
-            `;
-            
-            const playButton = playOverlay.querySelector('.play-button');
-            playButton.style.cssText = `
-                width: 80px;
-                height: 80px;
-                background: rgba(212, 175, 55, 0.9);
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 28px;
-                color: #000;
-                box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
-            `;
-            
+            // Ensure video container has proper positioning for mobile
             videoContainer.style.position = 'relative';
-            videoContainer.appendChild(playOverlay);
-            
-            playOverlay.addEventListener('click', () => {
-                playOverlay.style.display = 'none';
-                videoContainer.classList.add('playing');
-                // Trigger Vimeo video interaction
-                iframe.contentWindow.postMessage('{"method":"play"}', 'https://player.vimeo.com');
-            });
         }
     </script>
 </body>
