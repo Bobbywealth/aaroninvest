@@ -218,20 +218,8 @@ body {
     }
     
     .video-container::after {
-        content: 'Tap to Play';
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: rgba(0, 0, 0, 0.8);
-        color: #d4af37;
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: 600;
-        opacity: 0.8;
-        z-index: 5;
-        animation: tapHint 2s ease-in-out infinite alternate;
+        content: '';
+        display: none;
     }
     
     .video-container.playing::after {
