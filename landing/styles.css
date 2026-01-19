@@ -217,7 +217,7 @@ body {
         position: relative;
     }
     
-    .video-container::after {
+    .hero-video .video-container::after {
         content: 'Tap to Play';
         position: absolute;
         bottom: 20px;
@@ -234,7 +234,7 @@ body {
         animation: tapHint 2s ease-in-out infinite alternate;
     }
     
-    .video-container.playing::after {
+    .hero-video .video-container.playing::after {
         display: none;
     }
 }
@@ -813,11 +813,11 @@ body {
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
     }
     
-    .video-container iframe {
+    .hero-video .video-container iframe {
         pointer-events: none;
     }
     
-    .video-container.active iframe {
+    .hero-video .video-container.playing iframe {
         pointer-events: all;
     }
     
@@ -883,7 +883,7 @@ body {
     }
     
     .hero {
-        padding: 100px 0 40px;
+        padding: calc(140px + env(safe-area-inset-top)) 0 40px;
         min-height: auto;
     }
     

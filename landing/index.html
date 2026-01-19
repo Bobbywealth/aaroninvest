@@ -349,54 +349,63 @@
         
         // Mobile video optimization
         if (window.innerWidth <= 768) {
-            const videoContainer = document.querySelector('.video-container');
-            const iframe = videoContainer.querySelector('iframe');
-            
-            // Add mobile-specific attributes
-            iframe.setAttribute('playsinline', '');
-            iframe.setAttribute('webkit-playsinline', '');
-            
-            // Add touch-friendly play overlay
-            const playOverlay = document.createElement('div');
-            playOverlay.className = 'mobile-play-overlay';
-            playOverlay.innerHTML = '<div class="play-button">▶</div>';
-            playOverlay.style.cssText = `
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(0,0,0,0.3);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                z-index: 10;
-            `;
-            
-            const playButton = playOverlay.querySelector('.play-button');
-            playButton.style.cssText = `
-                width: 80px;
-                height: 80px;
-                background: rgba(212, 175, 55, 0.9);
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 28px;
-                color: #000;
-                box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
-            `;
-            
-            videoContainer.style.position = 'relative';
-            videoContainer.appendChild(playOverlay);
-            
-            playOverlay.addEventListener('click', () => {
-                playOverlay.style.display = 'none';
-                videoContainer.classList.add('playing');
-                // Trigger Vimeo video interaction
-                iframe.contentWindow.postMessage('{"method":"play"}', 'https://player.vimeo.com');
-            });
+            const videoContainer = document.querySelector('.hero-video .video-container');
+            const iframe = videoContainer ? videoContainer.querySelector('iframe') : null;
+
+            if (videoContainer && iframe) {
+                // Add mobile-specific attributes
+                iframe.setAttribute('playsinline', '');
+                iframe.setAttribute('webkit-playsinline', '');
+                
+                // Add touch-friendly play overlay
+                const playOverlay = document.createElement('button');
+                playOverlay.type = 'button';
+                playOverlay.className = 'mobile-play-overlay';
+                playOverlay.setAttribute('aria-label', 'Play video with sound');
+                playOverlay.innerHTML = '<span class="play-button">▶</span>';
+                playOverlay.style.cssText = `
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: rgba(0,0,0,0.3);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    z-index: 10;
+                    border: none;
+                    padding: 0;
+                `;
+                
+                const playButton = playOverlay.querySelector('.play-button');
+                playButton.style.cssText = `
+                    width: 80px;
+                    height: 80px;
+                    background: rgba(212, 175, 55, 0.9);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 28px;
+                    color: #000;
+                    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+                `;
+                
+                videoContainer.style.position = 'relative';
+                videoContainer.appendChild(playOverlay);
+                
+                const vimeoOrigin = 'https://player.vimeo.com';
+                playOverlay.addEventListener('click', () => {
+                    playOverlay.style.display = 'none';
+                    videoContainer.classList.add('playing');
+                    videoContainer.classList.add('active');
+                    // Trigger Vimeo video interaction with sound
+                    iframe.contentWindow.postMessage(JSON.stringify({ method: 'play' }), vimeoOrigin);
+                    iframe.contentWindow.postMessage(JSON.stringify({ method: 'setVolume', value: 1 }), vimeoOrigin);
+                });
+            }
         }
     </script>
 </body>
