@@ -971,9 +971,34 @@ body {
     }
     
     .hero-badge {
-        font-size: 12px;
-        padding: 6px 16px;
-        letter-spacing: 0.5px;
+        font-size: 11px;
+        padding: 6px 12px;
+        letter-spacing: 0.3px;
+        white-space: nowrap;
+        max-width: 90%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+/* Extra small mobile devices (iPhone SE, etc.) */
+@media (max-width: 375px) {
+    .hero-badge {
+        font-size: 10px;
+        padding: 5px 10px;
+        letter-spacing: 0.2px;
+        max-width: 85%;
+        word-break: keep-all;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 320px) {
+    .hero-badge {
+        font-size: 9px;
+        padding: 4px 8px;
+        letter-spacing: 0.1px;
+        max-width: 80%;
     }
     
     .urgency-content {
